@@ -16,7 +16,6 @@ public class CharityManagerTest {
     private CharityManager testCharityManager;
 
     private ArrayList<Charity> al1;
-    private ArrayList<Charity> al2;
 
 
     @BeforeEach
@@ -29,7 +28,6 @@ public class CharityManagerTest {
         testCharityManager = new CharityManager();
 
         al1 = new ArrayList<Charity>();
-        al2 = new ArrayList<Charity>();
 
     }
 
@@ -64,5 +62,12 @@ public class CharityManagerTest {
         assertEquals(2, testCharityManager.countCharitiesWithReachedGoals());
         testCharity2.addFunds(1000);
         assertEquals(3, testCharityManager.countCharitiesWithReachedGoals());
+    }
+
+    @Test
+    void isEmpty() {
+        assertTrue(testCharityManager.isEmpty());
+        testCharityManager.addCharity(testCharity1);
+        assertFalse(testCharityManager.isEmpty());
     }
 }
