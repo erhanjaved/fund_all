@@ -2,20 +2,30 @@ package ui;
 
 import model.Charity;
 import model.CharityManager;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+
 
 // Charity application
 
 public class CharityApp {
+    private static final String JSON_STORE = "./data/charities.json";
     private CharityManager charityManager;
     private Scanner scanner;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // MODIFIES: this
     // EFFECTS: initializes charities and runs charity application
-    public CharityApp() {
+    public CharityApp() throws FileNotFoundException {
         charityManager = new CharityManager();
         scanner = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runCharity();
     }
 
@@ -53,6 +63,10 @@ public class CharityApp {
             viewCharitiesWithReachedGoals();
         } else if (command.equals("5")) {
             fundCharity();
+        } else if (command.equals("s")) {
+            saveCharities();
+        } else if (command.equals("l")) {
+            loadCharities();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -66,6 +80,8 @@ public class CharityApp {
         System.out.println("\t3 -> Remove charity");
         System.out.println("\t4 -> View charities with reached goals");
         System.out.println("\t5 -> Fund a charity");
+        System.out.println("\ts -> save charities to file");
+        System.out.println("\tl -> load charities from file");
         System.out.println("\t0 -> Quit");
     }
 
@@ -147,5 +163,32 @@ public class CharityApp {
         selectedCharity.addFunds(amount);
         System.out.println("Thank you for funding " + selectedCharity.getName() + "! Current funds: $"
                 + selectedCharity.getCurrentFunds());
+    }
+
+    // EFFECTS: saves the charities to file
+    // CITATION: JsonSerializationDemo
+    // URL: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+    private void saveCharities() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(charityManager);
+            jsonWriter.close();
+            System.out.println("Saved the charities to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads charities from file
+    // CITATION: JsonSerializationDemo
+    // URL: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+    private void loadCharities() {
+        try {
+            charityManager = jsonReader.read();
+            System.out.println("Loaded charities from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }

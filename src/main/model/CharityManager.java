@@ -1,9 +1,12 @@
 package model;
 
 import java.util.ArrayList;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import persistence.Writable;
 
 // Represents a list of charities
-public class CharityManager {
+public class CharityManager implements Writable {
     private ArrayList<Charity> charities;
 
     // EFFECTS: creates an instance of this class
@@ -40,6 +43,28 @@ public class CharityManager {
 
     public boolean isEmpty() {
         return charities.isEmpty();
+    }
+
+    // CITATION: JsonSerializationDemo
+    // URL: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("charities", charitiesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this CharityManager as a JSON array
+    // CITATION: JsonSerializationDemo
+    // URL: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+    private JSONArray charitiesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Charity c : charities) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
     }
 
 }

@@ -23,4 +23,6 @@ and efficient pathway for donations, and perhaps the ease of it would lead to a 
 - As a user, I want to be able to add a charity/cause with a specific funding goal and also remove a charity/cause.
 - As a user, I want to be able to view a list of charities/cause.
 - As a user, I want to be able to see how many charities have reached their funding goals and view them.
-- As a user, I want to be able to send funds to the charity/cause that I choose.
+- As a user, I want to be able to send funds to the charity/cause that I choose. 
+- As a user, I want to be able to save my charities list to file (if I so choose)
+- As a user, I want to be able to be able to load my charities list from file (if I so choose)

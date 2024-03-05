@@ -22,6 +22,12 @@ public class CharityTest {
     }
 
     @Test
+    void setCurrentFunds() {
+        testCharity.setCurrentFunds(2000);
+        assertEquals(2000, testCharity.getCurrentFunds());
+    }
+
+    @Test
     void addFunds() {
         testCharity.addFunds(2000);
         assertEquals(2000, testCharity.getCurrentFunds());

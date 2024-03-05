@@ -1,0 +1,12 @@
+{"charities": [
+    {
+        "funding goal": 4000,
+        "name": "birds",
+        "current funds": 0
+    },
+    {
+        "funding goal": 6000,
+        "name": "trees",
+        "current funds": 2000
+    }
+]}
