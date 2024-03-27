@@ -26,3 +26,13 @@ and efficient pathway for donations, and perhaps the ease of it would lead to a 
 - As a user, I want to be able to send funds to the charity/cause that I choose. 
 - As a user, I want to be able to save my charities list to file (if I so choose)
 - As a user, I want to be able to be able to load my charities list from file (if I so choose)
+
+### Instructions for Grader:
+
+- You can add a charity by clicking the button "Add new charity"
+- You can remove a charity by clicking the button "Remove a charity"
+- You can fund a charity by clicking the button "Fund charity"
+- You can view charities that have reached their goals by clicking the button "View charities with reached goals"
+- You can locate my visual component as the background of the application (saved in the data folder)
+- You can save the state of my application by pressing the button "Save charities to file"
+- You can reload the state of my application by pressing the button "Load charities from file"

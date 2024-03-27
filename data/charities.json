@@ -1,12 +1,17 @@
 {"charities": [
     {
-        "funding goal": 3000,
-        "name": "turtles",
-        "current funds": 2000
+        "funding goal": 2000,
+        "name": "Turtles",
+        "current funds": 7000
     },
     {
-        "funding goal": 5000,
-        "name": "elephants",
+        "funding goal": 6000,
+        "name": "Trees",
+        "current funds": 3000
+    },
+    {
+        "funding goal": 7000,
+        "name": "Elephants",
         "current funds": 0
     }
 ]}
