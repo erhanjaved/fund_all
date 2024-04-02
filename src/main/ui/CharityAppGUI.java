@@ -291,13 +291,14 @@ public class CharityAppGUI extends JFrame implements ActionListener {
         JTable listings = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(listings);
         scrollPane.setBounds(10, 90, 800, 200);
+
+        int i = 0;
         for (Charity charity: charityManager.getCharities()) {
-            int i = 0;
             if (charity.hasReachedGoal()) {
+                i++;
                 String name = charity.getName();
                 double goal = charity.getFundingGoal();
                 double funds = charity.getCurrentFunds();
-                i++;
                 Object[] data = {i, name, goal, funds};
                 tableModel.addRow(data);
             }

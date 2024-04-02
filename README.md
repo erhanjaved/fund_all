@@ -42,17 +42,24 @@ and efficient pathway for donations, and perhaps the ease of it would lead to a 
 A sample event log:
 
 Event log:\
-Mon Apr 01 22:22:46 PDT 2024\
-Charity added: Turtles\
-Mon Apr 01 22:22:46 PDT 2024\
-Charity added: Trees\
-Mon Apr 01 22:22:46 PDT 2024\
-Charity added: Elephants\
-Mon Apr 01 22:23:06 PDT 2024\
+Tue Apr 02 01:35:09 PDT 2024\
+Charity added: Save the turtles!\
+Tue Apr 02 01:35:09 PDT 2024\
+Charity added: Reforestation\
+Tue Apr 02 01:35:09 PDT 2024\
+Charity added: Climate Change\
+Tue Apr 02 01:35:22 PDT 2024\
+Funds added to Save the turtles!: 2500.0\
+Tue Apr 02 01:35:27 PDT 2024\
 Viewed charities with reached goals\
-Mon Apr 01 22:23:11 PDT 2024\
-Charity Trees removed.\
-Mon Apr 01 22:23:20 PDT 2024\
-Funds added to Turtles: 2000.0\
-Mon Apr 01 22:23:25 PDT 2024\
-Charity Elephants removed.
+Tue Apr 02 01:35:43 PDT 2024\
+Charity Reforestation removed.
+
+### Phase 4: Task 3:
+#### Refactoring & Reflection
+If I had more time, I would refactor the CharityAppGUI class; it is quite lengthy and difficult to understand
+at first glance. I would split up the class (e.g. adding a charity and funding a charity) into different classes for 
+each panel in order to make the GUI structure much more comprehensible and reader-friendly. Although, not a form 
+of refactoring, I would also definitely introduce an ID field for a given charity, allowing 
+the user to remove a charity based on its ID instead of its index number in the list of charities provided.
+
