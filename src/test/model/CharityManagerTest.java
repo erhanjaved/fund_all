@@ -49,6 +49,23 @@ public class CharityManagerTest {
     }
 
     @Test
+    void removeCharity(){
+        al1.add(testCharity1);
+        al1.add(testCharity3);
+        testCharityManager.addCharity(testCharity1);
+        testCharityManager.addCharity(testCharity2);
+        testCharityManager.addCharity(testCharity3);
+        assertEquals(3, testCharityManager.getCharitiesSize());
+        testCharityManager.removeCharity(2);
+        assertEquals(al1, testCharityManager.getCharities());
+        assertEquals(2, testCharityManager.getCharitiesSize());
+        testCharityManager.removeCharity(1);
+        al1.remove(0);
+        assertEquals(al1, testCharityManager.getCharities());
+        assertEquals(1, testCharityManager.getCharitiesSize());
+    }
+
+    @Test
     void countCharitiesWithReachedGoals() {
         testCharityManager.addCharity(testCharity1);
         testCharityManager.addCharity(testCharity2);

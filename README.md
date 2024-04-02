@@ -36,3 +36,23 @@ and efficient pathway for donations, and perhaps the ease of it would lead to a 
 - You can locate my visual component as the background of the application (saved in the data folder)
 - You can save the state of my application by pressing the button "Save charities to file"
 - You can reload the state of my application by pressing the button "Load charities from file"
+
+### Phase 4: Task 2:
+
+A sample event log:
+
+Event log:\
+Mon Apr 01 22:22:46 PDT 2024\
+Charity added: Turtles\
+Mon Apr 01 22:22:46 PDT 2024\
+Charity added: Trees\
+Mon Apr 01 22:22:46 PDT 2024\
+Charity added: Elephants\
+Mon Apr 01 22:23:06 PDT 2024\
+Viewed charities with reached goals\
+Mon Apr 01 22:23:11 PDT 2024\
+Charity Trees removed.\
+Mon Apr 01 22:23:20 PDT 2024\
+Funds added to Turtles: 2000.0\
+Mon Apr 01 22:23:25 PDT 2024\
+Charity Elephants removed.

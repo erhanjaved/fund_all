@@ -18,6 +18,7 @@ public class CharityManager implements Writable {
     // EFFECTS: adds a charity to end of the list
     public void addCharity(Charity charity) {
         charities.add(charity);
+        EventLog.getInstance().logEvent(new Event("Charity added: " + charity.getName()));
     }
 
     // EFFECTS: returns the list of charities
@@ -38,7 +39,17 @@ public class CharityManager implements Writable {
                 count++;
             }
         }
+        EventLog.getInstance().logEvent(new Event("Viewed charities with reached goals"));
         return count;
+    }
+
+    // REQUIRES: 1< choice < charities.getCharitiesSize()
+    // MODIFIES: this
+    // EFFECTS: removes the specified numbered charity in the list
+    public void removeCharity(int choice) {
+        Charity removedCharity = charities.get(choice - 1);
+        charities.remove(choice - 1);
+        EventLog.getInstance().logEvent(new Event("Charity " + removedCharity.getName() + " removed."));
     }
 
     public boolean isEmpty() {

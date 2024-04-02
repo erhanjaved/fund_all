@@ -2,6 +2,8 @@ package ui;
 
 import model.Charity;
 import model.CharityManager;
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -10,6 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -64,6 +68,9 @@ public class CharityAppGUI extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    private EventLog eventLog = EventLog.getInstance();
+
+
     // Constructs GUI
     CharityAppGUI() {
         guiFrame = new JFrame("Fund All");
@@ -79,6 +86,22 @@ public class CharityAppGUI extends JFrame implements ActionListener {
         welcomeScreen();
         guiFrame.add(welcomePanel);
         guiFrame.setVisible(true);
+
+        guiFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                printEventLog();
+            }
+        });
+    }
+
+    // EFFECTS: print eventLog
+    private void printEventLog() {
+        System.out.println("Event log:");
+        for (Event e : eventLog) {
+            System.out.println(e);
+        }
     }
 
     // MODIFIES: this
@@ -259,9 +282,9 @@ public class CharityAppGUI extends JFrame implements ActionListener {
     // MODIFIES: this
     // EFFECTS: Generates table of all charities that have reached their goals
     private void generateReachedGoalsTableForCM(GridBagConstraints gbc) {
-        JLabel countCharities = new JLabel("Currently, " + charityManager.countCharitiesWithReachedGoals()
-                + " charity/charities have reached their funding goals!");
-        viewReachedGoalsPanel.add(countCharities, gridBagConstraints);
+        //JLabel countCharities = new JLabel("Currently, " + charityManager.countCharitiesWithReachedGoals()
+        //        + " charity/charities have reached their funding goals!");
+        //viewReachedGoalsPanel.add(countCharities, gridBagConstraints);
         gridBagConstraints.gridy++;
         String[] columnNames = {"#", "Name", "Goal ($)", "Current Funds ($)"};
         DefaultTableModel tableModel = new DefaultTableModel(columnNames,0);
@@ -362,7 +385,7 @@ public class CharityAppGUI extends JFrame implements ActionListener {
             System.out.println("Invalid choice!");
             JOptionPane.showMessageDialog(null, "Invalid choice!");
         } else {
-            charityManager.getCharities().remove(choice - 1);
+            charityManager.removeCharity(choice);
             JOptionPane.showMessageDialog(null, "Charity # " + choice + " removed successfully");
         }
     }

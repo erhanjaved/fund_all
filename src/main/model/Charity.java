@@ -43,6 +43,7 @@ public class Charity implements Writable {
      */
     public void addFunds(double amount) {
         currentFunds += amount;
+        EventLog.getInstance().logEvent(new Event("Funds added to " + getName() + ": " + amount));
     }
 
     /*
