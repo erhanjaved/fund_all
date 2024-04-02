@@ -4,7 +4,13 @@
 ### Overview:
 
 This Java-based project, titled *Fund All*, is a charity/donation app. Users willing to donate will be able to 
-choose a charity/cause of their choice and donate their desired amount of funds. Some of the features will include:
+choose a charity/cause of their choice and donate their desired amount of funds. 
+
+<p align ="center">
+    <img src="./data/sample_menu.png" width = 600>
+</p>
+
+Some of the features will include:
 
 - **View a charity/cause**: Donors will be able to view a list of charities/causes and select one to donate to!
 - **Start a charity/cause**: Users will be able to add their own charities/causes to the given list!
@@ -13,8 +19,8 @@ goals and opt to fund them as well!
 
 ### My interest:
 
-This project is important for me because, as an international student from a third world country, 
-there is no such application in my country that allows users to choose a charity from a list and instead they must 
+This project is important for me because, as an international student from a third-world country, 
+there is no such application in my country that allows users to choose a charity from a list, and instead they must 
 research on their own and send their donations via direct transfer. This app would allow a much more convenient 
 and efficient pathway for donations, and perhaps the ease of it would lead to a higher number of donations!
 
