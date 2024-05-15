@@ -33,19 +33,7 @@ and efficient pathway for donations, and perhaps the ease of it would lead to a 
 - As a user, I want to be able to save my charities list to file (if I so choose)
 - As a user, I want to be able to be able to load my charities list from file (if I so choose)
 
-### Instructions for Grader:
-
-- You can add a charity by clicking the button "Add new charity"
-- You can remove a charity by clicking the button "Remove a charity"
-- You can fund a charity by clicking the button "Fund charity"
-- You can view charities that have reached their goals by clicking the button "View charities with reached goals"
-- You can locate my visual component as the background of the application (saved in the data folder)
-- You can save the state of my application by pressing the button "Save charities to file"
-- You can reload the state of my application by pressing the button "Load charities from file"
-
-### Phase 4: Task 2:
-
-A sample event log:
+### A sample event log:
 
 Event log:\
 Tue Apr 02 01:35:09 PDT 2024\
@@ -60,12 +48,4 @@ Tue Apr 02 01:35:27 PDT 2024\
 Viewed charities with reached goals\
 Tue Apr 02 01:35:43 PDT 2024\
 Charity Reforestation removed.
-
-### Phase 4: Task 3:
-#### Refactoring & Reflection
-If I had more time, I would refactor the CharityAppGUI class; it is quite lengthy and difficult to understand
-at first glance. I would split up the class (e.g. adding a charity and funding a charity) into different classes for 
-each panel in order to make the GUI structure much more comprehensible and reader-friendly. Although, not a form 
-of refactoring, I would also definitely introduce an ID field for a given charity, allowing 
-the user to remove a charity based on its ID instead of its index number in the list of charities provided.
 
